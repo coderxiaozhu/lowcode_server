@@ -10,4 +10,7 @@ export class User {
 
     @Column()
     password: string; // 密码
+
+    @Column({ nullable: true })
+    salt: string;  // 密码加密盐值
 }

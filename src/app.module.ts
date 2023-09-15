@@ -4,6 +4,7 @@ import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule } from '@nestjs/config';
 import { UserModule } from './user/user.module';
+import { AuthModule } from './auth/auth.module';
 import * as path from 'path';
 const isProd = process.env.NODE_ENV === 'production';
 
@@ -22,9 +23,12 @@ const isProd = process.env.NODE_ENV === 'production';
       database: process.env.DB_DATABASE,
       synchronize: !isProd
     }),
-    UserModule
+    UserModule,
+    AuthModule
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [
+    AppService
+  ],
 })
 export class AppModule {}
