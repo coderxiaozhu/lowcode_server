@@ -23,7 +23,6 @@ export class UserController {
   @Get()
   async findAll() {
     throw new ApiException("用户不存在", ApiErrorCode.USER_NOTEXIST)
-    return await this.userRepository.find()
   }
 
   @Get(':id')

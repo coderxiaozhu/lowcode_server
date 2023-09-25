@@ -29,6 +29,7 @@
     "@nestjs/mapped-types": "*",
     "@nestjs/platform-express": "^10.0.0",
     "@nestjs/typeorm": "^10.0.0",
+    "babel-eslint": "^10.1.0",
     "cross-env": "^7.0.3",
     "crypto": "^1.0.1",
     "husky": "^8.0.3",
@@ -86,8 +87,7 @@
   },
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx}": [
-      "prettier --write",
-      "eslint --fix"
+      "prettier --write"
     ]
   },
   "config": {
