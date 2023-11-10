@@ -1,5 +1,15 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete, HttpStatus, HttpException } from '@nestjs/common';
-import { InjectRepository } from '@nestjs/typeorm'
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+  HttpStatus,
+  HttpException,
+} from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
 import { UserService } from './user.service';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
@@ -12,17 +22,17 @@ import { ApiErrorCode } from 'src/common/enums/api-error-code.enum';
 export class UserController {
   constructor(
     @InjectRepository(User)
-    private userRepository: Repository<User>
+    private userRepository: Repository<User>,
   ) {}
 
   @Post()
   async create(@Body() createUserDto: CreateUserDto) {
-    return await this.userRepository.save(createUserDto)
+    return await this.userRepository.save(createUserDto);
   }
 
   @Get()
   async findAll() {
-    throw new ApiException("用户不存在", ApiErrorCode.USER_NOTEXIST)
+    throw new ApiException('用户不存在', ApiErrorCode.USER_NOTEXIST);
   }
 
   @Get(':id')
